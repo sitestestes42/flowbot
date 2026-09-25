@@ -1,13 +1,31 @@
 {
-  "name":"flowbot-saas",
-  "version":"1.0.0",
-  "private":true,
-  "scripts":{"dev":"next dev","build":"next build","start":"next start","lint":"next lint"},
-  "dependencies":{
-    "@prisma/client":"latest",
-    "next":"latest",
-    "react":"latest",
-    "react-dom":"latest"
+  "name": "flowbot-saas",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate",
+    "db:push": "prisma db push",
+    "db:seed": "prisma db seed"
   },
-  "devDependencies":{"prisma":"latest","typescript":"latest","@types/node":"latest","@types/react":"latest","@types/react-dom":"latest"}
+  "dependencies": {
+    "@prisma/client": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "prisma": "latest",
+    "typescript": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tsx": "latest"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
 }

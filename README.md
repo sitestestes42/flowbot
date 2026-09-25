@@ -32,3 +32,11 @@ O projeto contém o painel, banco e endpoints-base. A integração oficial do Wh
 - fila/retry para webhooks
 - interface de inbox em tempo real
 - cobrança/assinaturas
+
+
+## Correção para Vercel
+O projeto usa o alias `@/` e o `tsconfig.json` já está configurado com `baseUrl`/`paths`.
+O `postinstall` executa `prisma generate` automaticamente no build da Vercel.
+
+Build Command: `npm run build`
+Install Command: `npm install`
