@@ -1,0 +1,75 @@
+generator client { provider = "prisma-client-js" }
+datasource db { provider = "postgresql" url = env("DATABASE_URL") }
+
+model Company {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String?
+  botName   String   @default("Assistente")
+  prompt    String   @default("Você é um atendente profissional e simpático.")
+  welcome   String   @default("Olá! Como posso ajudar?")
+  createdAt DateTime @default(now())
+  contacts  Contact[]
+  messages  Message[]
+  leads     Lead[]
+  products  Product[]
+  settings  Setting[]
+}
+
+model Contact {
+  id        String @id @default(cuid())
+  companyId String
+  name      String
+  phone     String
+  status    String @default("active")
+  company   Company @relation(fields:[companyId], references:[id], onDelete:Cascade)
+  messages  Message[]
+  leads     Lead[]
+  createdAt DateTime @default(now())
+  @@index([companyId])
+}
+
+model Message {
+  id        String @id @default(cuid())
+  companyId String
+  contactId String
+  direction String
+  text      String
+  createdAt DateTime @default(now())
+  company   Company @relation(fields:[companyId], references:[id], onDelete:Cascade)
+  contact   Contact @relation(fields:[contactId], references:[id], onDelete:Cascade)
+  @@index([companyId,createdAt])
+}
+
+model Lead {
+  id        String @id @default(cuid())
+  companyId String
+  contactId String?
+  name      String
+  phone     String
+  interest  String?
+  status    String @default("new")
+  createdAt DateTime @default(now())
+  company   Company @relation(fields:[companyId], references:[id], onDelete:Cascade)
+  contact   Contact? @relation(fields:[contactId], references:[id], onDelete:SetNull)
+}
+
+model Product {
+  id          String @id @default(cuid())
+  companyId   String
+  name        String
+  description String?
+  price       Float?
+  active      Boolean @default(true)
+  company     Company @relation(fields:[companyId], references:[id], onDelete:Cascade)
+  createdAt   DateTime @default(now())
+}
+
+model Setting {
+  id        String @id @default(cuid())
+  companyId String
+  key       String
+  value     String
+  company   Company @relation(fields:[companyId], references:[id], onDelete:Cascade)
+  @@unique([companyId,key])
+}

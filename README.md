@@ -1,75 +1,34 @@
-# FlowBot — site de vendas
+# FlowBot SaaS
 
-Site responsivo para vender automação de atendimento no WhatsApp.
+Painel de automação de atendimento WhatsApp preparado para Vercel + PostgreSQL + Gemini + WhatsApp Business Platform.
 
-## 1. Rodar localmente
+## Rodar
+1. `npm install`
+2. copie `.env.example` para `.env`
+3. preencha `DATABASE_URL`
+4. `npx prisma generate`
+5. `npx prisma db push`
+6. `npm run dev`
 
-Abra `index.html` no navegador.
+## Vercel
+Configure as mesmas variáveis no Project Settings > Environment Variables.
 
-Para desenvolvimento, também pode usar:
+## Webhook
+Configure no provedor oficial do WhatsApp:
+`https://SEU-DOMINIO.vercel.app/api/whatsapp/webhook`
 
-```bash
-python3 -m http.server 3000
-```
+Use `WHATSAPP_VERIFY_TOKEN` como token de verificação.
 
-Depois acesse `http://localhost:3000`.
+## Importante
+O projeto contém o painel, banco e endpoints-base. A integração oficial do WhatsApp exige configuração da conta Business e credenciais válidas. Nunca exponha `WHATSAPP_ACCESS_TOKEN` ou `GEMINI_API_KEY` no frontend.
 
-## 2. Configuração rápida
-
-Abra `config.js` e altere:
-
-- `brandName`
-- `whatsappSalesNumber`
-- preços dos planos
-- textos dos planos
-- `apiBaseUrl`, se você tiver um backend
-
-## 3. Importante sobre APIs
-
-NÃO coloque chaves secretas de Gemini, OpenAI, WhatsApp ou banco de dados no `config.js` ou no HTML.
-
-O correto é:
-
-Browser → seu backend → API externa
-
-As chaves ficam no backend, normalmente em variáveis de ambiente:
-
-```env
-GEMINI_API_KEY=
-WHATSAPP_ACCESS_TOKEN=
-WHATSAPP_PHONE_NUMBER_ID=
-DATABASE_URL=
-```
-
-## 4. Formulário
-
-Sem backend configurado, o formulário abre uma conversa de WhatsApp com os dados preenchidos.
-
-Com backend, configure:
-
-```js
-apiBaseUrl: "https://sua-api.com",
-leadEndpoint: "/api/leads"
-```
-
-O frontend enviará:
-
-```json
-{
-  "name": "Nome",
-  "business": "Empresa",
-  "phone": "WhatsApp"
-}
-```
-
-## 5. Próxima etapa
-
-Este projeto é a camada comercial/front-end. Para transformar o FlowBot em um SaaS real, conecte:
-
-- WhatsApp Business Platform ou provedor oficial
-- Gemini/OpenAI
-- banco de dados
-- autenticação
-- backend para webhooks
-- painel de conversas
-- configurações por cliente
+## Próximas etapas recomendadas
+- autenticação real (Auth.js/Clerk/Supabase Auth)
+- autorização por empresa/usuário
+- persistência completa do webhook
+- processamento de mensagens recebidas
+- chamada Gemini com contexto da empresa
+- resposta automática via WhatsApp
+- fila/retry para webhooks
+- interface de inbox em tempo real
+- cobrança/assinaturas

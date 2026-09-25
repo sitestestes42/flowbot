@@ -1,0 +1,6 @@
+import {db} from "@/lib/prisma";
+export default async function Conversations(){
+ const c=await db.company.findFirst(); const contacts=c?await db.contact.findMany({where:{companyId:c.id},include:{messages:{orderBy:{createdAt:"desc"},take:1}}}):[];
+ return <><div className="top"><div><h1>Conversas</h1><div className="sub">Atendimentos do WhatsApp</div></div></div>
+ <div className="chat"><div className="chat-list">{contacts.length?contacts.map(x=><div className="chat-item" key={x.id}><div className="person"><div className="avatar">{x.name[0]}</div><div><b>{x.name}</b><small className="sub">{x.phone}</small></div></div></div>):<div className="empty">Nenhuma conversa ainda.</div>}</div><div className="chat-area"><div className="chat-head"><b>Selecione uma conversa</b></div><div className="messages"><div className="empty">As mensagens recebidas pelo webhook aparecerão aqui.</div></div><div className="composer"><input className="input" placeholder="Responder manualmente..." disabled/><button className="btn" disabled>Enviar</button></div></div></div></>
+}
