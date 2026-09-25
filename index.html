@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Automatize o atendimento do seu negócio no WhatsApp com IA. Responda clientes, capture leads e encaminhe atendimentos para sua equipe.">
+  <title>FlowBot — Atendimento inteligente no WhatsApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="nav">
+    <a class="logo" href="#inicio"><span class="logo-mark">F</span><span>Flow<span>Bot</span></span></a>
+    <nav class="nav-links">
+      <a href="#recursos">Recursos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#planos">Planos</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-small btn-outline" href="#contato">Começar agora</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+  </header>
+
+  <main>
+    <section class="hero section" id="inicio">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> Atendimento automático com IA</div>
+        <h1>Seu WhatsApp trabalhando <span>24 horas por dia.</span></h1>
+        <p class="hero-text">Automatize perguntas, apresente seus serviços, capture clientes e encaminhe conversas para sua equipe — sem deixar ninguém esperando.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contato">Quero automatizar meu negócio <span>→</span></a>
+          <a class="btn btn-ghost" href="#demo">Ver demonstração</a>
+        </div>
+        <div class="trust-row">
+          <div class="avatars"><i>J</i><i>M</i><i>A</i><i>+</i></div>
+          <span>Feito para pequenos e médios negócios</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" id="demo">
+        <div class="glow"></div>
+        <div class="chat-window">
+          <div class="chat-top">
+            <div class="brand-mini"><span class="bot-icon">✦</span><div><strong>FlowBot</strong><small>Atendimento online</small></div></div>
+            <span class="online"><b></b> online</span>
+          </div>
+          <div class="chat-body" id="chatBody">
+            <div class="message bot">Olá! 👋 Sou o assistente da <strong>Studio Prime</strong>. Como posso ajudar?</div>
+            <div class="quick-actions">
+              <button data-message="Quero saber os serviços">Serviços</button>
+              <button data-message="Quero agendar um horário">Agendamento</button>
+              <button data-message="Quero falar com alguém">Atendente</button>
+            </div>
+          </div>
+          <div class="chat-input">
+            <input id="chatInput" placeholder="Digite uma mensagem..." autocomplete="off">
+            <button id="sendBtn" aria-label="Enviar">➤</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats section">
+      <div><strong>24/7</strong><span>Atendimento automático</span></div>
+      <div><strong>IA</strong><span>Conversas naturais</span></div>
+      <div><strong>1 painel</strong><span>Para organizar tudo</span></div>
+      <div><strong>+ vendas</strong><span>Menos clientes esquecidos</span></div>
+    </section>
+
+    <section class="section" id="recursos">
+      <div class="section-head">
+        <div class="eyebrow">RECURSOS</div>
+        <h2>Mais que respostas automáticas.</h2>
+        <p>Uma experiência de atendimento pensada para transformar conversas em oportunidades.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card featured"><span class="feature-icon">✦</span><h3>IA que conversa</h3><p>Responda dúvidas de forma natural com informações específicas do seu negócio.</p><span class="card-tag">IA</span></article>
+        <article class="feature-card"><span class="feature-icon">◫</span><h3>Catálogo inteligente</h3><p>Apresente produtos, serviços, preços e informações sem depender de um atendente.</p></article>
+        <article class="feature-card"><span class="feature-icon">◷</span><h3>Agendamentos</h3><p>Organize pedidos de horário e encaminhe os dados para sua equipe.</p></article>
+        <article class="feature-card"><span class="feature-icon">↗</span><h3>Captura de leads</h3><p>Nome, telefone, interesse e outras informações podem ser coletadas automaticamente.</p></article>
+        <article class="feature-card"><span class="feature-icon">⇄</span><h3>Transbordo para humano</h3><p>Quando a IA não deve continuar, a conversa é encaminhada para uma pessoa.</p></article>
+        <article class="feature-card"><span class="feature-icon">▦</span><h3>Painel</h3><p>Tenha uma visão centralizada das conversas e dos principais indicadores.</p></article>
+      </div>
+    </section>
+
+    <section class="how section" id="como-funciona">
+      <div class="section-head">
+        <div class="eyebrow">COMO FUNCIONA</div>
+        <h2>Do primeiro contato ao atendimento.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span>01</span><div><h3>Cliente manda mensagem</h3><p>O cliente entra em contato pelo WhatsApp da empresa.</p></div></div>
+        <div class="step"><span>02</span><div><h3>FlowBot entende</h3><p>A automação identifica a intenção e consulta as informações configuradas.</p></div></div>
+        <div class="step"><span>03</span><div><h3>Cliente recebe resposta</h3><p>A conversa segue de forma rápida, natural e personalizada.</p></div></div>
+        <div class="step"><span>04</span><div><h3>Equipe assume quando necessário</h3><p>Casos que precisam de uma pessoa são direcionados para atendimento humano.</p></div></div>
+      </div>
+    </section>
+
+    <section class="dashboard-section section">
+      <div class="dashboard-copy">
+        <div class="eyebrow">PAINEL DE CONTROLE</div>
+        <h2>Tenha tudo em um só lugar.</h2>
+        <p>Acompanhe conversas, leads e atendimentos sem precisar ficar olhando o WhatsApp o dia inteiro.</p>
+        <ul class="check-list">
+          <li>✓ Conversas organizadas</li>
+          <li>✓ Leads capturados automaticamente</li>
+          <li>✓ Histórico de atendimento</li>
+          <li>✓ Configuração por empresa</li>
+        </ul>
+      </div>
+      <div class="dashboard-mock">
+        <div class="dash-top"><span>Visão geral</span><small>Hoje ▾</small></div>
+        <div class="dash-metrics">
+          <div><small>Conversas</small><strong>128</strong><em>+18%</em></div>
+          <div><small>Leads</small><strong>42</strong><em>+12%</em></div>
+          <div><small>Resolvidas por IA</small><strong>86%</strong><em>+7%</em></div>
+        </div>
+        <div class="chart"><div class="bars"><i style="height:35%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:84%"></i><i style="height:76%"></i><i style="height:92%"></i></div><div class="chart-labels"><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span><span>Hoje</span></div></div>
+      </div>
+    </section>
+
+    <section class="pricing section" id="planos">
+      <div class="section-head">
+        <div class="eyebrow">PLANOS</div>
+        <h2>Comece simples. Cresça quando quiser.</h2>
+        <p>Você pode alterar os valores abaixo em <code>config.js</code>.</p>
+      </div>
+      <div class="pricing-grid" id="pricingGrid"></div>
+    </section>
+
+    <section class="faq section" id="faq">
+      <div class="section-head"><div class="eyebrow">DÚVIDAS</div><h2>Perguntas frequentes.</h2></div>
+      <div class="faq-list">
+        <details><summary>Preciso saber programar para usar? <span>+</span></summary><p>Não. O site já vem preparado. Para colocar a operação real no ar, você só precisa configurar as credenciais dos serviços escolhidos.</p></details>
+        <details><summary>O bot funciona com WhatsApp? <span>+</span></summary><p>Sim, mas para produção recomendamos utilizar uma integração oficial ou um provedor autorizado de WhatsApp Business. A integração exata depende do fornecedor escolhido.</p></details>
+        <details><summary>Posso usar Gemini ou outra IA? <span>+</span></summary><p>Sim. O backend pode ser conectado à API de IA que você escolher. Nunca coloque uma chave secreta diretamente no HTML.</p></details>
+        <details><summary>Posso personalizar para cada cliente? <span>+</span></summary><p>Sim. A estrutura foi pensada para trabalhar com dados, prompt, catálogo e regras diferentes por negócio.</p></details>
+      </div>
+    </section>
+
+    <section class="cta section" id="contato">
+      <div class="cta-box">
+        <div><div class="eyebrow">PRONTO PARA COMEÇAR?</div><h2>Transforme o WhatsApp em uma máquina de atendimento.</h2><p>Configure sua demonstração e comece a apresentar o serviço para seus primeiros clientes.</p></div>
+        <form id="leadForm">
+          <input name="name" placeholder="Seu nome" required>
+          <input name="business" placeholder="Nome do negócio" required>
+          <input name="phone" placeholder="WhatsApp" required>
+          <button class="btn btn-primary" type="submit">Quero começar →</button>
+          <small id="formStatus"></small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="logo"><span class="logo-mark">F</span><span>Flow<span>Bot</span></span></div><p>Atendimento inteligente para negócios.</p><small>© <span id="year"></span> FlowBot. Todos os direitos reservados.</small></footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
