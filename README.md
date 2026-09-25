@@ -43,3 +43,14 @@ Install Command: `npm install`
 
 ## Versão Prisma
 Este projeto fixa Prisma e @prisma/client em 6.19.3 para manter compatibilidade com `prisma/schema.prisma` e com o código que importa `@prisma/client`.
+
+
+## Vercel — correção do Prisma
+Não usamos `postinstall` para gerar o Prisma. O build executa primeiro:
+`prisma generate && next build`
+
+Isso evita que o `npm install` do ambiente da Vercel falhe durante a instalação das dependências.
+
+Se o repositório tiver um `package-lock.json` antigo, apague-o e gere um novo com:
+`npm install`
+antes de fazer o commit.
