@@ -32,6 +32,7 @@ model Contact {
   messages  Message[]
   leads     Lead[]
   createdAt DateTime @default(now())
+
   @@index([companyId])
 }
 
@@ -44,6 +45,7 @@ model Message {
   createdAt DateTime @default(now())
   company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
   contact   Contact  @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
   @@index([companyId, createdAt])
 }
 
@@ -77,5 +79,6 @@ model Setting {
   key       String
   value     String
   company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
   @@unique([companyId, key])
 }
