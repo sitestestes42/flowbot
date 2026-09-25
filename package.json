@@ -7,25 +7,19 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate",
-    "db:push": "prisma db push",
-    "db:seed": "prisma db seed"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "latest",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "@prisma/client": "6.19.3",
+    "next": "15.5.7",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "prisma": "latest",
-    "typescript": "latest",
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "tsx": "latest"
-  },
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
+    "prisma": "6.19.3",
+    "typescript": "^5.7.2",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0"
   }
 }

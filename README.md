@@ -40,3 +40,6 @@ O `postinstall` executa `prisma generate` automaticamente no build da Vercel.
 
 Build Command: `npm run build`
 Install Command: `npm install`
+
+## Versão Prisma
+Este projeto fixa Prisma e @prisma/client em 6.19.3 para manter compatibilidade com `prisma/schema.prisma` e com o código que importa `@prisma/client`.
